@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'custom_paint_lab.dart';
 import 'draggable_scrollable_sheet.dart';
 import 'markdown_lab.dart';
 import 'multi_grid_lab.dart';
@@ -8,12 +9,13 @@ import 'stack_lab.dart';
 import 'table_lab.dart';
 
 Map<String, Builder> labs = {
+  'Next lab': (_) => NextLabPage(),
   'Markdown lab': (_) => MarkdownPage(),
   'DraggableScrollableSheet lab': (_) => DSSLabPage(),
   'Table lab': (_) => TableLabPage(),
   'Multi GridView lab': (_) => MultiGridLabPage(),
   'Stack lab': (_) => StackLabPage(),
-  'Next lab': (_) => NextLabPage(),
+  'CustomPaint lab': (_) => CustomPaintLabPage(),
 };
 
 typedef Widget Builder(BuildContext context);
