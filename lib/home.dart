@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'custom_paint_lab.dart';
 import 'draggable_scrollable_sheet.dart';
+import 'flex_lab.dart';
 import 'markdown_lab.dart';
 import 'multi_grid_lab.dart';
 import 'next_lab.dart';
@@ -10,6 +11,7 @@ import 'table_lab.dart';
 
 Map<String, Builder> labs = {
   'Next lab': (_) => NextLabPage(),
+  'Flex lab': (_) => FlexLabPage(),
   'Markdown lab': (_) => MarkdownPage(),
   'DraggableScrollableSheet lab': (_) => DSSLabPage(),
   'Table lab': (_) => TableLabPage(),
