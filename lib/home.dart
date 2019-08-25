@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'codec_lab.dart';
 import 'custom_paint_lab.dart';
 import 'draggable_scrollable_sheet.dart';
 import 'firestore_lab.dart';
@@ -12,6 +13,7 @@ import 'table_lab.dart';
 
 Map<String, Builder> labs = {
   'Next lab': (_) => NextLabPage(),
+  'Codec lab': (_) => CodecLabPage(),
   'Firestore lab': (_) => FirestoreLabPage(),
   'Flex lab': (_) => FlexLabPage(),
   'Markdown lab': (_) => MarkdownPage(),
