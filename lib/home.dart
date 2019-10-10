@@ -9,11 +9,13 @@ import 'image_picker_lab.dart';
 import 'markdown_lab.dart';
 import 'multi_grid_lab.dart';
 import 'next_lab.dart';
+import 'provider_lab.dart';
 import 'stack_lab.dart';
 import 'table_lab.dart';
 
 Map<String, Builder> labs = {
   'Next lab': (_) => NextLabPage(),
+  'Provider lab': (_) => ProviderLabPage(),
   'Image picker lab': (_) => ImagePickerLabPage(),
   'Codec lab': (_) => CodecLabPage(),
   'Firestore lab': (_) => FirestoreLabPage(),
