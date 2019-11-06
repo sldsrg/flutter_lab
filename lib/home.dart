@@ -6,6 +6,7 @@ import 'draggable_scrollable_sheet.dart';
 import 'firestore_lab.dart';
 import 'flex_lab.dart';
 import 'image_picker_lab.dart';
+import 'localizations_lab.dart';
 import 'markdown_lab.dart';
 import 'multi_grid_lab.dart';
 import 'next_lab.dart';
@@ -15,6 +16,7 @@ import 'table_lab.dart';
 
 Map<String, Builder> labs = {
   'Next lab': (_) => NextLabPage(),
+  'Localizations lab': (_) => LocalizationsLabPage(),
   'Provider lab': (_) => ProviderLabPage(),
   'Image picker lab': (_) => ImagePickerLabPage(),
   'Codec lab': (_) => CodecLabPage(),
