@@ -10,6 +10,8 @@
         android:name="com.example.labs.MultiDexFlutterApplication"
         android:label="labs"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY" 
+        android:value="@string/google_android_geo_api" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

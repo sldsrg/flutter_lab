@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:labs/google_maps_lab.dart';
 
 import 'codec_lab.dart';
 import 'custom_paint_lab.dart';
@@ -16,6 +17,7 @@ import 'table_lab.dart';
 
 Map<String, Builder> labs = {
   'Next lab': (_) => NextLabPage(),
+  'Google Maps lab': (_) => GoogleMapsLabPage(),
   'Localizations lab': (_) => LocalizationsLabPage(),
   'Provider lab': (_) => ProviderLabPage(),
   'Image picker lab': (_) => ImagePickerLabPage(),

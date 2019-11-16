@@ -1,3 +1,6 @@
+# private data
+**/android/**/api-keys.xml
+
 # Miscellaneous
 *.class
 *.log
