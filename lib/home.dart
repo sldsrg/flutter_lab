@@ -8,6 +8,7 @@ import 'firestore_lab.dart';
 import 'flex_lab.dart';
 import 'image_picker_lab.dart';
 import 'localizations_lab.dart';
+import 'location_lab.dart';
 import 'markdown_lab.dart';
 import 'multi_grid_lab.dart';
 import 'next_lab.dart';
@@ -17,6 +18,7 @@ import 'table_lab.dart';
 
 Map<String, Builder> labs = {
   'Next lab': (_) => NextLabPage(),
+  'Location lab': (_) => LocationLabPage(),
   'Google Maps lab': (_) => GoogleMapsLabPage(),
   'Localizations lab': (_) => LocalizationsLabPage(),
   'Provider lab': (_) => ProviderLabPage(),
