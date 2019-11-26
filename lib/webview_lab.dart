@@ -1,5 +1,6 @@
 import 'dart:io' as io;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
@@ -10,15 +11,17 @@ class WebViewLabPage extends StatefulWidget {
 }
 
 class _WebViewLabPageState extends State<WebViewLabPage> {
-  var url = 'file:///data/data/com.example.labs/app_flutter/test.html'; //"https://www.google.com";
+  var url = 'file:///data/data/com.example.labs/app_flutter/temp.html';
+  //"https://www.google.com";
+  static const volumeChannel = const MethodChannel('samples.flutter.io/volume');
 
   @override
   Widget build(BuildContext context) {
     return WebviewScaffold(
       url: url,
       withLocalUrl: true,
-      appBar: new AppBar(
-        title: new Text("Widget webview"),
+      appBar: AppBar(
+        title: Text("Widget webview"),
         actions: <Widget>[
           FlatButton(
             onPressed: () {
@@ -43,15 +46,17 @@ class _WebViewLabPageState extends State<WebViewLabPage> {
           'https://api.github.com/repos/octokit/octokit.rb/contents/README.md',
           headers: {'Accept': 'application/vnd.github.v3.html'});
       final directory = await getApplicationDocumentsDirectory();
-      final file = io.File('$directory/temp2.html');
+      final file = io.File('${directory.path}/temp.html');
       await file.writeAsString(contents);
-    } catch (HttpException) {}
+    } catch (err) {
+      print(err);
+    }
   }
 
   changeUrl() async {
     final directory = await getApplicationDocumentsDirectory();
     setState(() {
-      url = '$directory/temp2.html';
+      url = '${directory.path}/temp.html';
     });
   }
 }
