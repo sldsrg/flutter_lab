@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:labs/services/location_service.dart';
-import 'package:provider/provider.dart';
 
 import 'models/user_location.dart';
 
@@ -31,7 +30,8 @@ class Indicator extends StatelessWidget {
               Text('Long: ${snapshot.data?.longitude}'),
               Text('Alt: ${snapshot.data?.altitude}'),
               Text('Accuracy: ${snapshot.data?.accuracy}'),
-              Text('Time: ${DateTime.fromMillisecondsSinceEpoch(snapshot.data?.time?.toInt())}')
+              Text(
+                  'Time: ${DateTime.fromMillisecondsSinceEpoch(snapshot.data?.time?.toInt())}')
             ],
           );
         }
