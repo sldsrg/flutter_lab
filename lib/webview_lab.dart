@@ -14,6 +14,25 @@ class _WebViewLabPageState extends State<WebViewLabPage> {
   var url = 'file:///data/data/com.example.labs/app_flutter/temp.html';
   //"https://www.google.com";
   static const volumeChannel = const MethodChannel('samples.flutter.io/volume');
+  final flutterWebviewPlugin = new FlutterWebviewPlugin();
+
+  @override
+  void initState() {
+    super.initState();
+    volumeChannel.setMethodCallHandler(_handleVolume);
+  }
+
+  Future _handleVolume(MethodCall call) async {
+    switch (call.method) {
+      case 'volume':
+        if (call.arguments == 'up') {
+          flutterWebviewPlugin.pageScroll(-0.85);
+        } else {
+          flutterWebviewPlugin.pageScroll(0.85);
+        }
+        return Future.value(null);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +48,6 @@ class _WebViewLabPageState extends State<WebViewLabPage> {
             },
             child: Text('File'),
           ),
-          FlatButton(
-            onPressed: () {
-              changeUrl();
-            },
-            child: Text('Url'),
-          )
         ],
       ),
     );
