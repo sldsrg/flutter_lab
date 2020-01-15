@@ -16,7 +16,7 @@ class GoogleMapsLabPageState extends State<GoogleMapsLabPage> {
 
   String _selectedOffice = '';
 
-  List<Marker> _buildMarkers() {
+  Set<Marker> _buildMarkers() {
     return preset.map((office) {
       return Marker(
           markerId: MarkerId(office['id']),
@@ -30,7 +30,21 @@ class GoogleMapsLabPageState extends State<GoogleMapsLabPage> {
               _selectedOffice = office['id'];
             });
           });
-    });
+    }).toSet();
+  }
+
+  Set<Polyline> _buildPolylines() {
+    return List.of([
+      Polyline(
+        polylineId: PolylineId('abcde1234'),
+        patterns: <PatternItem>[PatternItem.dash(5), PatternItem.gap(5)],
+        width: 2,
+        color: Colors.red,
+        points: preset.map((office) {
+          return LatLng(office['lat'], office['lng']);
+        }).toList(),
+      )
+    ]).toSet();
   }
 
   @override
@@ -38,7 +52,8 @@ class GoogleMapsLabPageState extends State<GoogleMapsLabPage> {
     return new Scaffold(
       body: GoogleMap(
         initialCameraPosition: CameraPosition(target: LatLng(37.7, -122.2), zoom: 9.0),
-        markers: _buildMarkers().toSet(),
+        markers: _buildMarkers(),
+        polylines: _buildPolylines(),
       ),
     );
   }
