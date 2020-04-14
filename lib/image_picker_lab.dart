@@ -1,6 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -36,6 +36,10 @@ class _ImagePickerLabPageState extends State<ImagePickerLabPage> {
       ),
       persistentFooterButtons: <Widget>[
         FlatButton(
+          child: Text('File Picker'),
+          onPressed: useFilePicker,
+        ),
+        FlatButton(
           child: Text('upload'),
           onPressed: _upload,
         )
@@ -56,5 +60,12 @@ class _ImagePickerLabPageState extends State<ImagePickerLabPage> {
       ));
     final response = await http.Response.fromStream(await request.send());
     print("Result: ${response.statusCode} ${response.reasonPhrase}");
+  }
+
+  Future useFilePicker() async {
+    File file = await FilePicker.getFile(type: FileType.IMAGE);
+    setState(() {
+      _image = file;
+    });
   }
 }
